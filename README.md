@@ -10,7 +10,7 @@
 This is a simple project built using Kubernetes. 
 
 There are two setups:
-1. "Hello World" app
+1. "Hello World" app 
 2. "Hello World" app with nginx redirection using `/nginx`
 
 ### Setup the environment
@@ -21,8 +21,8 @@ There are two setups:
 
 **2. Create minikube cluster**
 
-`minikube start --memory 4096` 
-In certain devices, there is a virtualization error displaying "Enabling VT-X AMD-v in the BIOS is mandatory." If you have similar problem, please proceed with this command instead `minikube start --memory 4096 --driver=virtualbox --no-vtx-check`.
+`minikube start --memory 4096` <br>
+In certain devices, there is a virtualization error displaying "Enabling VT-X AMD-v in the BIOS is mandatory." If you have similar problem, please proceed with this command instead `minikube start --memory 4096 --driver=virtualbox --no-vtx-check`. <br>
 Ensure the cluster is running without any problems `minikube status`.
 
 **3. Build Docker image for both deployments**
@@ -30,11 +30,11 @@ Ensure the cluster is running without any problems `minikube status`.
 This step is optional. You can directly deploy definition files which contain my public image. <br>
 If you wish to build your own image, you can do this step.
 
-`docker login` Enter the username and password of your Docker Hub
-Go into k8s-web-hello directory `cd /k8s-web-hello`
-Build the image with your desired name `docker build -t <YOUR_IMAGE>:v1 .`
-Tag your image with the repository name `docker tag <YOUR_IMAGE>:v1 <YOUR_REPO>/<YOUR_IMAGE>:v1`
-Push the image to your repository `docker push <YOUR_REPO>/<YOUR_IMAGE>:v1`
+`docker login` Enter the username and password of your Docker Hub <br>
+Go into k8s-web-hello directory `cd /k8s-web-hello` <br>
+Build the image with your desired name `docker build -t <YOUR_IMAGE>:v1 .` <br>
+Tag your image with the repository name `docker tag <YOUR_IMAGE>:v1 <YOUR_REPO>/<YOUR_IMAGE>:v1` <br>
+Push the image to your repository `docker push <YOUR_REPO>/<YOUR_IMAGE>:v1` <br>
 
 Repeat the same steps for `k8s-web-to-nginx` image. Replace the placeholders with your actual values.
 
@@ -42,7 +42,7 @@ Repeat the same steps for `k8s-web-to-nginx` image. Replace the placeholders wit
 
 If you want to experience more about kubernetes components, apply them separately. Otherwise, you can directly apply all-in-one definition files.
 
-`kubectl apply -f k8s-web-hello`
+`kubectl apply -f k8s-web-hello` <br>
 `kubectl apply -f k8s-web-to-nginx`
 
 **5. Access the service**
